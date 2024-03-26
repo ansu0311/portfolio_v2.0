@@ -3,7 +3,6 @@ import { ContactMe } from "@/components/ContactMe";
 import { ExperienceTab } from "@/components/ExperienceTab";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { ProjectTab } from "@/components/ProjectTab";
 import { SkillTab } from "@/components/SkillTab";
 import dp from "../public/dp.jpg"
 import Head from "next/head";
@@ -25,7 +24,7 @@ type Props = {
   socials : Social[];
 }
 
-function Home ( {pageInfo, skills, experience,socials, projects}:Props ) {
+function Home ( {pageInfo, skills, experience,socials}:Props ) {
   return (
     <>
       <Head>
@@ -46,9 +45,6 @@ function Home ( {pageInfo, skills, experience,socials, projects}:Props ) {
         </section>
         <section id="skills" className="snap-center">
         <SkillTab skills={skills}/>
-        </section>
-        <section id="project" className="snap-center">
-        <ProjectTab projects={projects}/>
         </section>
         <section id="experience" className="snap-center">
         <ExperienceTab experience={experience}/>
