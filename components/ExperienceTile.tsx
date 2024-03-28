@@ -1,6 +1,4 @@
-import React from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { Technology } from '@/typings'
 import { urlFor } from '@/sanity'
 
@@ -29,7 +27,7 @@ export function ExperienceTile({company,companyImage,dateEnded,dateStarted,curre
   
 
   return (
-    <article className='flex my-2 pb-1 md:m-0 md:py-2 flex-col rounded-xl items-center space-y-1 flex-shrink-0 w-full md:w-3/5 xl:w-1/3 snap-center bg-zinc-900'>
+    <article className='flex my-2 pb-1 md:m-0 md:py-2 flex-col rounded-xl items-center space-y-0.5 flex-shrink-0 w-full md:w-3/5 xl:w-1/3 snap-center bg-slate-300/90 dark:bg-zinc-900/90'>
         <motion.div 
     initial ={{
       x: -200,
@@ -47,8 +45,8 @@ export function ExperienceTile({company,companyImage,dateEnded,dateStarted,curre
     </motion.div>
     <div className='px-0 md:px-10'>
         <div className='flex gap-2 text-lg items-center justify-center'>
-            <div className='mt-0.5 font-light my-auto'>{jobTitle}</div>
-        {"-"}<div className='font-semibold mt-0.5 my-auto'>{company}</div>
+            <div className='font-medium my-auto'>{jobTitle}</div>
+        {"-"}<div className='font-bold my-auto'>{company}</div>
         </div>
         <div className='flex justify-center space-x-2 my-1 md:my-2'>
           {technologies.map((tech,index)=>{
@@ -56,7 +54,7 @@ export function ExperienceTile({company,companyImage,dateEnded,dateStarted,curre
           })}
         </div>
 
-        <p className=' capitalize flex justify-center py-1 md:py-2 text-gray-300 text-md'>
+        <p className=' capitalize flex justify-center py-1 md:py-2text-md'>
             {ShowDate(dateStartSec)} - {ShowDate(dateEndSec)}
         </p>
 

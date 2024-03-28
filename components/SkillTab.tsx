@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { SkillIcons } from "./SkillIcons";
 import { Skill } from "@/typings";
 import { urlFor } from "@/sanity";
@@ -24,7 +23,7 @@ export function SkillTab({ skills }: Props) {
           })
         }
       </div>
-      <div className="z-5 w-full absolute top-[30%] bg-purple-500/10 left-0 h-2/4 -skew-y-12"></div>
+      <div className="z-5 w-full absolute top-[30%] bg-purple-500/30 dark:bg-purple-500/10 left-0 h-2/4 -skew-y-12"></div>
     </PageHeading>
   );
 }

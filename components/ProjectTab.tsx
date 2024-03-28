@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
-import PageHeading from "./PageHeading";
 import Carousel from "./Carousel";
 
 type Props = {
@@ -77,7 +77,7 @@ export function ProjectTab({ projects }: Props) {
               />
             );
           })}
-          <div className="w-full flex justify-between z-50">
+          <div className="w-full flex justify-between z-50 ">
             <button id="prev" onClick={() => slidePrev()} className="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ export function ProjectTab({ projects }: Props) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="border-2 w-12 h-12 border-purple-500/30 hover:bg-purple-500/30 p-2 rounded-full "
+                className="border-2 w-12 h-12 border-purple-400/50 hover:bg-purple-400/50 dark:border-purple-500/30 dark:hover:bg-purple-500/30 p-2 rounded-full "
               >
                 <path
                   fill-rule="evenodd"

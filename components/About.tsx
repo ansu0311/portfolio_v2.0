@@ -1,11 +1,10 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { PageInfo } from "@/typings";
 import { urlFor } from "@/sanity";
 import PageHeading from "./PageHeading";
 
 type Props = {
-  pageInfo: PageInfo[];
+  pageInfo: PageInfo;
 };
 
 export function About({ pageInfo }: Props) {
@@ -26,7 +25,7 @@ export function About({ pageInfo }: Props) {
            flex justify-center mt-10 md:mt-0 md:justify-end"
         >
           <img
-            src={urlFor(pageInfo[0].profileImage).url()}
+            src={urlFor(pageInfo.profileImage).url()}
             alt="profile"
             className="flex-shrink-0 object-cover rounded-[1.5rem]
             h-auto w-1/2 md:w-10/12 xl:w-9/12"
@@ -35,10 +34,10 @@ export function About({ pageInfo }: Props) {
         <div className="md:col-span-4 lg:col-span-3 xl:col-span-2 flex flex-col px-10 md:pr-20 justify-center">
           <h4 className="text-3xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold pb-2">
             Here is a little Something{" "}
-            <div className="text-purple-300/70"> About Me</div>
+            <div className="text-purple-600/70 dark:text-purple-300/70"> About Me</div>
           </h4>
           <p className=" text-sm lg:text-sm xl:text-md text-justify">
-            {pageInfo[0].backgroundInformation}
+            {pageInfo.backgroundInformation}
           </p>
         </div>
       </div>

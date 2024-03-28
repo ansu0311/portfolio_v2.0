@@ -1,7 +1,5 @@
 import { PageInfo } from '@/typings'
 import { EnvelopeOpenIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/16/solid'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
 import {useForm,SubmitHandler} from 'react-hook-form'
 import PageHeading from './PageHeading'
 
@@ -13,7 +11,7 @@ type Input = {
 }
 
 type Props = {
-  pageInfo: PageInfo[]
+  pageInfo: PageInfo
 }
 
 export function ContactMe({pageInfo}: Props) {
@@ -31,21 +29,21 @@ export function ContactMe({pageInfo}: Props) {
     <div className='flex flex-col space-y-10'>
       <h4 className='text-2xl font-medium text-center'>
       A Project on your mind?
-        <div className=' text-purple-400/70 text-3xl font-bold'>Let's connect</div>
+        <div className='text-purple-500/90 dark:text-purple-400/70 text-3xl font-bold'>Let's connect</div>
       </h4>
 
       <div className=' text-lg md:text-md space-y-2 md:space-y-5'>
         <div className='flex items-center space-x-5 justify-center'>
-          <PhoneIcon className=' text-purple-500 h-7 w-7 animate-pulse'/>
-          <p>{pageInfo[0].phoneNumber}</p>
+          <PhoneIcon className=' text-purple-700 dark:text-purple-500 h-7 w-7 animate-pulse'/>
+          <p>{pageInfo.phoneNumber}</p>
         </div>
         <div className='flex items-center space-x-5 justify-center'>
-          <EnvelopeOpenIcon className=' text-purple-500 h-7 w-7 animate-pulse'/>
-          <p>{pageInfo[0].email}</p>
+          <EnvelopeOpenIcon className=' text-purple-700 dark:text-purple-500 h-7 w-7 animate-pulse'/>
+          <p>{pageInfo.email}</p>
         </div>
         <div className='flex items-center space-x-5 justify-center'>
-          <MapPinIcon className=' text-purple-500 h-7 w-7 animate-pulse'/>
-          <p>{pageInfo[0].address}</p>
+          <MapPinIcon className=' text-purple-700 dark:text-purple-500 h-7 w-7 animate-pulse'/>
+          <p>{pageInfo.address}</p>
         </div>
     </div>
 
@@ -58,7 +56,7 @@ export function ContactMe({pageInfo}: Props) {
       <input {...register("subject")} type="text" placeholder='Subject' className="contactInput" />
 
       <textarea {...register("message")} placeholder='Message' className='contactInput'/>
-      <button className='pt-2 bg-zinc-300/40 transition-all ease-in-out duration-150 text-black hover:bg-purple-500/70 h-14 rounded-md text-lg font-semibold '>Submit</button>
+      <button className='pt-2 bg-zinc-600/90 dark:bg-zinc-300/40 transition-all ease-in-out duration-150 text-white dark:text-black hover:bg-purple-600/50 hover:dark:bg-purple-500/70 h-14 rounded-md text-lg font-semibold '>Submit</button>
     </form>
 
       </div>

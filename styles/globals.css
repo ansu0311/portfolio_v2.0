@@ -6,8 +6,8 @@
     .heroButton {
         @apply px-4 py-2 border border-gray-600 rounded-full uppercase text-xs
         md:text-sm
-        text-gray-400 transition-all hover:border-purple-600/30
-        hover:text-white hover:bg-purple-600/30
+        text-gray-700 dark:text-gray-400 transition-all hover:border-purple-500/60 hover:dark:border-purple-600/30
+        hover:text-white hover:bg-purple-500/60 hover:dark:bg-purple-600/30
     }
     
     .contactInput {
@@ -15,4 +15,8 @@
         placeholder-gray-500 transition-all focus:border-purple-500/40 focus:text-purple-500/40 hover:border-purple-500/40
     }
 
+}
+
+* {
+    scroll-behavior: smooth;
 }

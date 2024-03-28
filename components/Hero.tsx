@@ -1,4 +1,4 @@
-import React from 'react'
+"use client";
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import { BackGroundCircles } from './BackGroundCircles'
 import Link from 'next/link'
@@ -6,12 +6,12 @@ import { PageInfo } from '@/typings'
 import { urlFor } from '@/sanity'
 
 type Props = {
-  pageInfo: PageInfo[]
+  pageInfo: PageInfo
 }
 export function Hero({pageInfo}: Props) {
   
   const [ text, count ] = useTypewriter({
-    words:[`Hi, The Name's ${pageInfo[0].name}`,
+    words:[`Hi, The Name's ${pageInfo.name}`,
     "Guy-who-loves-Coffee.tsx",
     "<ButLovesToCodeMore />",],
     loop:true,
@@ -23,14 +23,14 @@ export function Hero({pageInfo}: Props) {
       <BackGroundCircles/>
       <div className='flex justify-center'>
       <img className='h-24 w-24 md:h-28 md:w-28 lg:w-32 lg:h-32 bg-slate-50/50 object-cover rounded-full overflow-hidden'
-       src={urlFor(pageInfo[0].heroImage).url()} alt="display picture" />
+       src={urlFor(pageInfo.heroImage).url()} alt="display picture" />
       </div>
-      <div className='text-sm lg:text-md uppercase text-gray-500 py-1 tracking-widest'>{pageInfo[0].role}</div>
+      <div className='text-md lg:text-xl uppercase text-gray-700 dark:text-gray-500 py-1 tracking-widest'>{pageInfo.role}</div>
       <div className='flex justify-center text-lg lg:text-xl font-semibold'>
-        <div className='my-auto text-purple-100/80'>{text}</div>
+        <div className='my-auto text-purple-600/80 dark:text-purple-200/80'>{text}</div>
         <Cursor cursorColor='rgb(168, 85, 247)'/>
       </div>
-      <div className='flex justify-center gap-2 pt-5 z-50'>
+      <div className='flex justify-center gap-2 pt-5 z-50 text-md font-semibold '>
         <Link href="#about">
         <div className='heroButton'>About</div>
         </Link>
@@ -40,7 +40,7 @@ export function Hero({pageInfo}: Props) {
         <Link href="#skills">
         <div className='heroButton'>Skills</div>
         </Link>
-        <Link href="#project">
+        <Link href="#projects">
         <div className='heroButton'>Project</div>
         </Link>
       </div>

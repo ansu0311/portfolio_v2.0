@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import dp from "../public/dp.jpg";
-import Image from "next/image";
 import { Social } from "@/typings";
 import { SocialIcon } from "react-social-icons";
 
