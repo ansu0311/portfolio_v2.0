@@ -21,6 +21,10 @@ export default {
     options: {
       hotspot: true,
     },
+  },{
+    name: 'technology',
+    title: 'Technology',
+    type: 'boolean',
   },
   ],
 }

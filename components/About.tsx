@@ -1,46 +1,79 @@
-import { motion } from "framer-motion";
-import { PageInfo } from "@/typings";
-import { urlFor } from "@/sanity";
-import PageHeading from "./PageHeading";
+import { TitleText } from "./smallComponents/TitleText";
+import AboutText from "./smallComponents/AboutText";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { MagneticFramer } from "./smallComponents/MagneticFramer";
+import Link from "next/link";
 
 type Props = {
-  pageInfo: PageInfo;
+  imageLink: string;
 };
 
-export function About({ pageInfo }: Props) {
+export function About({ imageLink }: Props) {
+
+  // to aniamte the circle button when in view
+  const ref2 = useRef(null);
+  const isInView = useInView(ref2, { once: true });
+
   return (
-    <PageHeading heading="About">
-      <div className="flex flex-col md:grid md:grid-cols-10 lg:grid-cols-8 xl:grid-cols-6 gap-10">
-        <motion.div
-          initial={{
-            x: -200,
-            opacity: 0,
-          }}
-          transition={{
-            duration: 1.2,
-          }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="md:col-span-4 md:col-start-2 lg:col-span-3 lg:col-start-2 xl:col-span-2 xl:col-start-2
-           flex justify-center mt-10 md:mt-0 md:justify-end"
-        >
-          <img
-            src={urlFor(pageInfo.profileImage).url()}
-            alt="profile"
-            className="flex-shrink-0 object-cover rounded-[1.5rem]
-            h-auto w-1/2 md:w-10/12 xl:w-9/12"
-          />
-        </motion.div>
-        <div className="md:col-span-4 lg:col-span-3 xl:col-span-2 flex flex-col px-10 md:pr-20 justify-center">
-          <h4 className="text-3xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold pb-2">
-            Here is a little Something{" "}
-            <div className="text-purple-600/70 dark:text-purple-300/70"> About Me</div>
-          </h4>
-          <p className=" text-sm lg:text-sm xl:text-md text-justify">
-            {pageInfo.backgroundInformation}
-          </p>
+    <div ref={ref2} className="w-screen py-10 sm:py-20">
+      <div className="mx-auto h-auto px-4 sm:px-8 xl:px-0 max-w-6xl flex flex-col gap-16 sm:grid grid-cols-2 relative">
+        <div className="col-span-1 flex flex-col justify-center gap-0 xl:gap-5">
+            <div className="flex">
+              <TitleText titles={["About"]} />
+              <div className="text-[#c9fd74]">
+                <TitleText titles={["*"]} />
+              </div>
+            </div>
+            <div className="flex">
+              <TitleText titles={["me"]} />
+              <motion.div
+                transition={{ duration: 1.2, delay: 0.4 }}
+                whileInView={{ scale: [0, 1.2, 1] }}
+                viewport={{ once: true }}
+                className="rounded-full mx-5 h-[4rem] w-[4rem] sm:h-[5rem] sm:w-[5rem] md:h-[6rem] md:w-[6rem]  xl:h-[7rem] xl:w-[7rem] my-2 overflow-hidden"
+              >
+                <img
+                  src={imageLink}
+                  alt="profile"
+                  className="h-full w-auto object-cover object-center"
+                />
+              </motion.div>
+            </div>
+        </div>
+        <div className="pb-3 xl:pb-5 col-span-1 h-full flex flex-col justify-center">
+          <div className="w-full xl:gap-4 flex justify-end">
+            <AboutText
+              texts={[
+                "I'm a Developer and Designer from India, combining",
+                "user-centric design with web development skills to",
+                "create compelling digital experiences.",
+              ]}
+            />
+          </div>
+          <div className="flex justify-end">
+            <MagneticFramer>
+              <motion.div
+                transition={{ duration: 1.2 }}
+                animate={isInView ? { x: [+200, -20, 0] } : {}}
+                viewport={{ once: true }}
+              >
+                <button
+                  type="button"
+                  className="w-16 h-16 xl:w-20 xl:h-20 rounded-full flex flex-col justify-center bg-[#c9fd74] z-10"
+                >
+                  <Link
+                    href="/about"
+                    className="text-[#242424] mx-auto w-14 text-center text-base xl:text-lg leading-6 font-medium"
+                  >
+                    More
+                  </Link>
+                </button>
+              </motion.div>
+            </MagneticFramer>
+          </div>
         </div>
       </div>
-    </PageHeading>
+    </div>
   );
 }

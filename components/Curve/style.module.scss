@@ -1,0 +1,24 @@
+.slideIn, .slideOut {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #c9fd74;
+    z-index: 50;
+}
+.slideIn{
+    transform-origin: bottom;
+}
+.slideOut{
+    transform-origin: top;
+}
+.preloaderSvg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+        path{
+            fill: #141516;
+        }
+}

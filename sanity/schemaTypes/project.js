@@ -39,6 +39,14 @@ export default {
     name: 'linkToBuild',
     title: 'LinkToBuild',
     type:'url',
+  },{
+    name: 'displayBoard',
+    title: 'DisplayBoard',
+    type:'boolean',
+  },{
+    name: 'bgColor',
+    title: 'Background Color',
+    type:"string",
   },
   ],
 }
