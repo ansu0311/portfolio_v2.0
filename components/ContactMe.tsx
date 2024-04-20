@@ -28,17 +28,17 @@ export function ContactMe({ pageInfo }: Props) {
   return (
     <div
       ref={ref}
-      className="px-4 sm:px-8 xl:px-0 h-screen flex flex-col justify-center gap-8 max-w-6xl mx-auto"
+      className="px-4 sm:px-8 xl:px-0 my-16 sm:my-0 h-auto sm:h-screen flex flex-col justify-center gap-6 max-w-6xl mx-auto"
     >
       <div className="flex flex-col mx-auto">
         <TitleText2 titles={["Communication matters to"]} />
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-1 sm:gap-4">
           <TitleText2 titles={["start good things"]} />
           <motion.p
             transition={{ duration: 1.2 }}
             animate={isInView ? { rotate: 360, scale: [0, 1] } : {}}
             viewport={{ once: true }}
-            className=" text-[#c9fd74] text-[2.5rem] sm:text-[3rem] sm:leading-[2.5rem] md:text-[3.8rem] md:leading-[3.5rem] lg:text-[5rem] lg:leading-[4.5rem] xl:text-[6rem] xl:leading-[6rem]"
+            className=" text-[#c9fd74] text-[2.2rem] sm:text-[3rem] sm:leading-[2.5rem] md:text-[3.8rem] md:leading-[3.5rem] lg:text-[5rem] lg:leading-[4.5rem] xl:text-[6rem] xl:leading-[6rem]"
           >
             /
           </motion.p>
@@ -64,24 +64,26 @@ export function ContactMe({ pageInfo }: Props) {
         </MagneticFramer>
         <hr className="absolute border-gray-500 border-[1px] w-full top-1/2 z-0" />
       </div>
-      <div className="w-3/4 mx-auto font-medium gap-4 flex flex-col sm:flex-row justify-start">
-        <ButtonDesign text={pageInfo.email} />
-        <ButtonDesign text={pageInfo.phoneNumber} />
+      <div className="w-3/4 mx-auto font-medium gap-4 flex flex-col justify-start">
+          <ButtonDesign text={pageInfo.email} />
+          <ButtonDesign text={pageInfo.phoneNumber} />
+        <ButtonDesign text={"Resume"} link="https://drive.google.com/file/d/1nAelXE1CLXMYDqlhg2yks1e0hGm_9kOO/view?usp=sharing" target="_blank" />
       </div>
       <motion.div
         transition={{ duration: 0.8 }}
         animate={isInView ? { x: [+200, 0] } : {}}
         viewport={{ once: true }}
-        className="gap-2 flex justify-end"
+        className="gap-2 flex justify-center sm:justify-end"
       >
         {pageInfo.socials.map((e) => (
           <motion.div
+          key={e._id}
             whileHover={{ scale: [null, 1.6, 1.4] }}
             transition={{ duration: 0.5 }}
           >
             <SocialIcon
               key={e._id}
-              className="w-8 h-8 sm:w-10 sm:h-10"
+              className="w-6 h-6 sm:w-10 sm:h-10"
               style={{ width: "4rem", height: "4rem" }}
               url={e.url}
               label={e.title}

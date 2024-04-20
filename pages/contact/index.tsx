@@ -27,14 +27,20 @@ function Contact({ pageInfo }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Curve text="Work">
-        <main>
+        <main className="heroed">
           <div
-            className="z-0 overflow-scroll bg-[#242424] h-screen w-full text-white
+            className="z-10 overflow-scroll bg-transparent h-auto w-full text-white
        overflow-y-scroll overflow-x-hidden scrollbar-none"
           >
-            <Header name={pageInfo.name} />
-            <Body imageLink={urlFor(pageInfo.heroImage).url()} />
-            <ContactForm pageInfo={pageInfo} />
+            <section id="hero" className="snap-start">
+              <Header name={pageInfo.name} />
+            </section>
+            <section id="body" className="snap-center">
+              <Body imageLink={urlFor(pageInfo.heroImage).url()} />
+            </section>
+            <section id="end" className="snap-end">
+              <ContactForm pageInfo={pageInfo} />
+            </section>
           </div>
         </main>
       </Curve>

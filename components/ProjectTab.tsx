@@ -15,7 +15,7 @@ export function ProjectTab({ projects }: Props) {
   const [modal, setModal] = useState({active: false, index: 0})
 
   return (
-      <main className="h-screen overflow-hidden max-w-6xl px-4 sm:px-8 xl:px-0 flex justify-center mx-auto">
+      <main className="h-auto my-10 sm:my-0 sm:h-screen overflow-hidden max-w-6xl px-4 sm:px-8 xl:px-0 flex justify-center mx-auto">
         <div className=" w-full flex flex-col justify-center items-center py-10 ">
       <div className=" w-full items-start pb-10">
         <TitleText titles={["Projects"]}/>

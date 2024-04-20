@@ -12,7 +12,6 @@ import fetchProjects from "@/utils/fetchProjects";
 import { Curve } from "@/components/Curve/Curve";
 import { urlFor } from "@/sanity";
 
-
 type Props = {
   pageInfo: PageInfo;
   projects: Project[];
@@ -30,33 +29,33 @@ function Home({ pageInfo, projects }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Curve text="Home">
-        <main>
-          <div
-            className=" z-0 overflow-scroll bg-[#242424] h-screen w-full text-white
+      <div className="w-full overflow-x-hidden scrollbar-thin scrollbar-track-white/20 scrollbar-thumb-[#c9fd74]">
+        <Curve text="Home">
+          <main className="heroed">
+            <div
+              className="z-10 overflow-scroll h-auto w-full text-white
        overflow-y-scroll overflow-x-hidden scrollbar-none"
-          >
-            <section id="hero" className="snap-start">
-              <Hero pageInfo={pageInfo} />
-            </section>
-            <section id="about" className="snap-center">
-              <About
-                imageLink={urlFor(pageInfo.heroImage).url()}
-              />
-            </section>
-            <section id="projects" className="snap-center">
-              <ProjectTab
-                projects={projects
-                  .filter((e) => e.displayBoard === true)
-                  .reverse()}
-              />
-            </section>
-            <section id="contactMe" className="snap-center">
-              <ContactMe pageInfo={pageInfo} />
-            </section>
-          </div>
-        </main>
-      </Curve>
+            >
+              <section id="hero" className="snap-start">
+                <Hero pageInfo={pageInfo} />
+              </section>
+              <section id="about" className="snap-center">
+                <About imageLink={urlFor(pageInfo.heroImage).url()} />
+              </section>
+              <section id="projects" className="snap-center">
+                <ProjectTab
+                  projects={projects
+                    .filter((e) => e.displayBoard === true)
+                    .reverse()}
+                />
+              </section>
+              <section id="contactMe" className="snap-center">
+                <ContactMe pageInfo={pageInfo} />
+              </section>
+            </div>
+          </main>
+        </Curve>
+      </div>
     </>
   );
 }

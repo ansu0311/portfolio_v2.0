@@ -11,15 +11,14 @@ export function Body({ imgLink, info }: Props) {
       <div className="">
         <div className=" flex justify-center w-full">
           <div className="col-span-1 flex flex-col justify-center gap-0 xl:gap-5">
-            <div className="flex flex-col sm:flex-row sm:gap-3 justify-center">
+            <div className="flex gap-3 justify-center">
+            <TitleText2 titles={["Web Designer"]} />
               <div className="text-[#c9fd74]">
-                <TitleText2 titles={["Web Developer: "]} />
+              <TitleText2 titles={["/"]} />
               </div>
-              <TitleText2 titles={["Crafting clean & "]} />
             </div>
             <div className="flex flex-col sm:flex-row sm:gap-3 justify-center">
-              <TitleText2 titles={["interactive"]} />
-              <TitleText2 titles={["experiences"]} />
+              <TitleText2 titles={["Developer"]} />
             </div>
           </div>
         </div>

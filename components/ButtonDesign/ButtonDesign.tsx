@@ -3,14 +3,15 @@ import styles from "./style.module.scss";
 type Props = {
   link?: string;
   text: string;
+  target?: string;
 };
 
-export function ButtonDesign({ link, text }: Props) {
+export function ButtonDesign({ link, text ,target = "_self" }: Props) {
   return (
     <Link
       className={styles.buttonDesign}
       href={link ? link : ""}
-      target="_self"
+      target={target}
     >
       <button 
       className="bg-transparent border border-white outline-none px-4 pt-1 text-base sm:text-sm  lg:text-base 

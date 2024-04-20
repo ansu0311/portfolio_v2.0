@@ -46,9 +46,9 @@ function About({pageInfo,skills}: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Curve text='About'>
-      <main>
+      <main className="heroed">
       <div
-            className="z-0 overflow-scroll bg-[#242424] h-screen w-full text-white
+            className="z-10 overflow-scroll bg-transparent h-screen w-full text-white
        overflow-y-scroll overflow-x-hidden scrollbar-none"
           >
       <Header name={pageInfo.name}/>

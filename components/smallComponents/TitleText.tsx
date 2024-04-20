@@ -20,7 +20,7 @@ export function TitleText({titles}: Props) {
       {
         titles.map( (title, index) => {
           return <div key={index} className="overflow-hidden">
-            <motion.p className="m-0 text-[3.5rem] leading-[4rem] sm:text-[2.7rem] sm:leading-[2.7rem] md:text-[3.5rem] md:leading-[3.5rem] lg:text-[4.5rem] lg:leading-[4.3rem] xl:text-[6.5rem] xl:leading-[6rem] uppercase" custom={index} variants={animation} initial="initial" animate={inView ? "enter" : ""}>{title}</motion.p>
+            <motion.p className="m-0 text-[3.5rem] leading-[4rem] sm:text-[3.5rem] sm:leading-[3.3rem] md:text-[4.5rem] md:leading-[4.3rem] lg:text-[5.5rem] lg:leading-[5.3rem] xl:text-[6.5rem] xl:leading-[6rem] uppercase" custom={index} variants={animation} initial="initial" animate={inView ? "enter" : ""}>{title}</motion.p>
           </div>
         })
       }
@@ -43,7 +43,7 @@ export function TitleText2({titles}: Props) {
   {
     titles.map( (title, index) => {
       return <div key={index} className="overflow-hidden text-center">
-        <motion.p className=" sm:mb-4 text-[2.5rem] sm:text-[2rem] sm:leading-[1.5rem] md:text-[2.8rem] md:leading-[2.5rem] lg:text-[4rem] lg:leading-[3.5rem] xl:text-[5rem] xl:leading-[5rem]" custom={index} variants={animation} initial="initial" animate={inView ? "enter" : ""}>{title}</motion.p>
+        <motion.p className=" sm:mb-4 text-[2.1rem] sm:text-[2rem] sm:leading-[1.5rem] md:text-[2.8rem] md:leading-[2.5rem] lg:text-[4rem] lg:leading-[3.5rem] xl:text-[5rem] xl:leading-[5rem]" custom={index} variants={animation} initial="initial" animate={inView ? "enter" : ""}>{title}</motion.p>
       </div>
     })
   }
