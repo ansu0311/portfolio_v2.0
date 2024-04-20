@@ -10,7 +10,7 @@ type Props = {
 };
 export function Hero({ pageInfo }: Props) {
   return (
-    <div className="text-white  bg-transparent w-full h-screen flex flex-col justify-between pt-5">
+    <div className="text-white bg-transparent w-full h-auto sm:h-screen flex flex-col justify-between pt-5">
       <div className="flex flex-col sm:flex-row sm:justify-between">
         <div className="flex flex-col pl-4 sm:pl-8 gap-10 sm:gap-0 text-[#c9fd74]">
           <CodeBy coder={pageInfo.name} to="/" />
