@@ -21,7 +21,7 @@ export function Hero({ pageInfo }: Props) {
           <div className=" top-40 -right-10 w-52 h-40 red bg-[#c7057d]/70 blob movement"></div>
           <div className=" top-64 right-0 w-48 h-40 green bg-[#5f9c02]/60 blob movement"></div>
         </div>
-        <div className="w-full sm:w-auto  flex justify-end mt-20 ">
+        <div className="w-full sm:w-auto  flex justify-end mt-16 sm:mt-20 ">
           <div className="my-auto flex justify-between bg-white rounded-l-full w-32 h-14 sm:w-32 sm:h-12 lg:w-36 xl:w-40 xl:h-16">
             <div className=" flex-col justify-center flex my-auto ml-3 w-10 h-10 sm:w-10 sm:h-10 xl:w-12 xl:h-12 rounded-full bg-[#242424]">
               <div className="flex justify-center p-2">
