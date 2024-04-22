@@ -5,7 +5,10 @@ import { SocialIcon } from "react-social-icons";
 import { MagneticFramer } from "./smallComponents/MagneticFramer";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import {ButtonDesign} from "./ButtonDesign/ButtonDesign";
+import {ButtonDesign3} from "./ButtonDesign/ButtonDesign";
+import Link from "next/link";
+import globe from "../styles/assets/787.gif";
+import Image from "next/image";
 
 type Input = {
   name: string;
@@ -38,7 +41,7 @@ export function ContactMe({ pageInfo }: Props) {
             transition={{ duration: 1.2 }}
             animate={isInView ? { rotate: 360, scale: [0, 1] } : {}}
             viewport={{ once: true }}
-            className=" text-[#c9fd74] text-[2.2rem] sm:text-[3rem] sm:leading-[2.5rem] md:text-[3.8rem] md:leading-[3.5rem] lg:text-[5rem] lg:leading-[4.5rem] xl:text-[6rem] xl:leading-[6rem]"
+            className=" text-[2.2rem] sm:text-[3rem] sm:leading-[2.5rem] md:text-[3.8rem] md:leading-[3.5rem] lg:text-[5rem] lg:leading-[4.5rem] xl:text-[6rem] xl:leading-[6rem]"
           >
             /
           </motion.p>
@@ -64,17 +67,32 @@ export function ContactMe({ pageInfo }: Props) {
         </MagneticFramer>
         <hr className="absolute border-gray-500 border-[1px] w-full top-1/2 z-0" />
       </div>
-      <div className="w-3/4 mx-auto font-medium gap-4 flex flex-col justify-start">
-          <ButtonDesign text={pageInfo.email} />
-          <ButtonDesign text={pageInfo.phoneNumber} />
-        <ButtonDesign text={"Resume"} link="https://drive.google.com/file/d/1nAelXE1CLXMYDqlhg2yks1e0hGm_9kOO/view?usp=sharing" target="_blank" />
+      <div className="w-full justify-center flex flex-col gap-5 lg:gap-20 lg:flex-row lg:px-20 mt-5">
+        <div className='flex flex-col mx-auto lg:mx-0  bg-transparent'>
+        <div className='w-64 lg:w-full text-sm font-medium border-b text-[#c9fd74] border-[#c9fd74] pb-1'>Contact Details</div>
+        <div className="flex flex-col mt-3 gap-1">
+          <Link className="text-white hover:text-[#c9fd74]"  href={`mailto:${pageInfo.email}`}>{pageInfo.email}</Link>
+          <Link className="text-white hover:text-[#c9fd74]" target="_blank" href={`https://wa.me/+91${pageInfo.phoneNumber}`}>+91{pageInfo.phoneNumber}</Link>
+         <div className="w-full flex justify-center">
+          <div className="my-auto flex py-1 gap-2 bg-white w-full rounded-full">
+            <div className=" flex-col justify-center flex my-auto m-1 w-8 h-8 rounded-full bg-[#242424]">
+              <div className="flex justify-center p-2">
+                <Image src={globe} alt="globe" />
+              </div>
+            </div>
+            <div className="text-[#242424] flex flex-col my-auto font-medium text-sm">
+              Roots in India
+            </div>
+          </div>
+        </div>
       </div>
+      </div>
+      <div className="flex flex-col">
       <motion.div
-        transition={{ duration: 0.8 }}
-        animate={isInView ? { x: [+200, 0] } : {}}
-        viewport={{ once: true }}
-        className="gap-2 flex justify-center sm:justify-end"
-      >
+      transition={{ duration: 0.8 }}
+      animate={isInView ? { x: [+200, 0] } : {}}
+      viewport={{ once: true }}>
+      <div className="gap-2 flex justify-center">
         {pageInfo.socials.map((e) => (
           <motion.div
           key={e._id}
@@ -84,7 +102,7 @@ export function ContactMe({ pageInfo }: Props) {
             <SocialIcon
               key={e._id}
               className="w-6 h-6 sm:w-10 sm:h-10"
-              style={{ width: "4rem", height: "4rem" }}
+              style={{ width: "3.5rem", height: "3.5rem" }}
               url={e.url}
               label={e.title}
               bgColor="transparent"
@@ -92,59 +110,12 @@ export function ContactMe({ pageInfo }: Props) {
             />
           </motion.div>
         ))}
+      </div>
+      <p className="flex justify-center w-full mt-1">
+      <ButtonDesign3 text={"View Resume"} link="https://drive.google.com/file/d/1nAelXE1CLXMYDqlhg2yks1e0hGm_9kOO/view?usp=sharing" target="_blank" />
+      </p>
       </motion.div>
+    </div></div>
     </div>
   );
-}
-
-{
-  /* <div className=" h-screen flex flex-col justify-center max-w-7xl mx-auto pt-10">
-      <div className="flex flex-col mx-auto">
-        <TitleText2 titles={["Communication matters to","start good things/"]} />
-      </div>
-      <div className="w-3/4 mx-auto flex justify-end my-12 relative">
-        <MagneticFramer> <button
-          type="button"
-          onClick={() => router.push("mailto:ansuman.nayak03@gmail.com")}
-          className="w-28 h-28 mr-16 rounded-full flex flex-col justify-center bg-blue-600 z-10"
-        >
-          <div className="text-white mx-auto w-14 text-center text-xl leading-6 font-medium">
-          Get in touch
-          </div>
-        </button></MagneticFramer>
-        <hr className="absolute border-gray-500 border-[1px] w-full top-1/2 z-0" />
-      </div>
-      <div className="w-3/4 mx-auto font-medium gap-4 flex justify-start">
-        <div className="py-2 px-5 border border-black rounded-full">
-          {pageInfo.email}
-        </div>
-        <div className="py-2 px-5 border border-black rounded-full">
-          {pageInfo.phoneNumber}
-        </div>
-      </div>
-      <motion.div
-        initial={{
-          x: +200,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 1.2,
-        }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        className="gap-2 flex justify-end mt-16"
-      >
-        {pageInfo.socials.map((e) => (
-          <SocialIcon
-            key={e._id}
-            className="w-10 h-10"
-            style={{ width: "4rem", height: "4rem" }}
-            url={e.url}
-            label={e.title}
-            bgColor="transparent"
-            fgColor="#2563EB"
-          />
-        ))}
-      </motion.div>
-    </div> */
 }

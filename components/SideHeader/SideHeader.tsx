@@ -27,8 +27,8 @@ export default function index() {
       transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
     },
     closed: {
-      width: "100px",
-      height: "40px",
+      width: "50px",
+      height: "50px",
       top: "0px",
       right: "0px",
       transition: {

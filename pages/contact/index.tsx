@@ -4,7 +4,6 @@ import { PageInfo } from "@/typings";
 import fetchPageInfo from "@/utils/fetchPageInfo";
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
-import Header from "@/components/AboutPage/Header";
 import { Curve } from "@/components/Curve/Curve";
 import { Body } from "@/components/ContactPage/Body";
 import { urlFor } from "@/sanity";
@@ -32,9 +31,6 @@ function Contact({ pageInfo }: Props) {
             className="z-10 overflow-scroll bg-transparent h-auto w-full text-white
        overflow-y-scroll overflow-x-hidden scrollbar-none"
           >
-            <section id="hero" className="snap-start">
-              <Header name={pageInfo.name} />
-            </section>
             <section id="body" className="snap-center">
               <Body imageLink={urlFor(pageInfo.heroImage).url()} />
             </section>

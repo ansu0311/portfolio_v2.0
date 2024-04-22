@@ -2,8 +2,8 @@
     position: absolute;
     top: 0rem;
     right: 0rem;
-    width: 100px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     border-radius: 25px;
     overflow: hidden;
@@ -60,7 +60,7 @@
         &:nth-of-type(2){
             position: absolute;
             transform-origin: bottom center;
-            transform: rotateX(-90deg) translateY(9px);
+            transform: rotateX(-90deg) translateY(16px);
             opacity: 0;
         }
     }

@@ -6,7 +6,6 @@ import fetchPageInfo from "@/utils/fetchPageInfo";
 import { GetStaticProps } from "next";
 import { PageInfo, Skill } from "@/typings";
 import {Curve} from '@/components/Curve/Curve'
-import Header from '@/components/AboutPage/Header'
 import { ContactMe } from "@/components/ContactMe";
 import { Body } from "@/components/AboutPage/About"
 import Offerings from "@/components/AboutPage/Offerings";
@@ -51,7 +50,6 @@ function About({pageInfo,skills}: Props) {
             className="z-10 overflow-scroll bg-transparent h-screen w-full text-white
        overflow-y-scroll overflow-x-hidden scrollbar-none"
           >
-      <Header name={pageInfo.name}/>
       <Body info={pageInfo.backgroundInformation} imgLink={urlFor(pageInfo.profileImage).url()}/>
       <Offerings/>
       <ContactMe pageInfo={pageInfo}/>

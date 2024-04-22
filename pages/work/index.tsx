@@ -5,7 +5,6 @@ import fetchPageInfo from "@/utils/fetchPageInfo";
 import fetchProjects from "@/utils/fetchProjects";
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
-import Header from "@/components/AboutPage/Header";
 import { ContactMe } from "@/components/ContactMe";
 import { Curve } from "@/components/Curve/Curve";
 import { Body } from "@/components/WorkPage/Body";
@@ -33,9 +32,6 @@ function Work({ projects, pageInfo }: Props) {
             className="z-10 overflow-scroll bg-transparent h-auto w-full text-white
        overflow-y-scroll overflow-x-hidden scrollbar-none"
           >
-            <section id="hero" className="snap-start">
-              <Header name={pageInfo.name} />
-            </section>
             <section id="body" className="snap-center">
               <Body projects={projects} />
             </section>

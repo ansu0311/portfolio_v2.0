@@ -3,20 +3,24 @@ import AboutText from "./smallComponents/AboutText";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MagneticFramer } from "./smallComponents/MagneticFramer";
+import Marquee from "react-fast-marquee";
 import Link from "next/link";
+import { Skill } from "@/typings";
+import { urlFor } from "@/sanity";
 
 type Props = {
   imageLink: string;
+  skills: Skill[];
 };
 
-export function About({ imageLink }: Props) {
+export function About({ imageLink,skills }: Props) {
 
   // to aniamte the circle button when in view
   const ref2 = useRef(null);
   const isInView = useInView(ref2, { once: true });
 
   return (
-    <div ref={ref2} className="w-screen py-10 sm:py-20">
+    <div ref={ref2} className="w-screen pt-8 pb-4 sm:pt-16 sm:pb-10">
       <div className="mx-auto h-auto px-4 sm:px-8 xl:px-0 max-w-6xl flex flex-col gap-16 sm:grid grid-cols-2 relative">
         <div className="col-span-1 flex flex-col justify-center gap-0 xl:gap-5">
             <div className="flex">
@@ -74,6 +78,18 @@ export function About({ imageLink }: Props) {
           </div>
         </div>
       </div>
+      <div className=" flex bg-transparent overflow-hidden w-2/3 items-center rounded-full mx-auto mt-12">
+        <Marquee gradientColor="#242424" pauseOnHover={false} gradient={true} speed={100} gradientWidth="15rem">
+          {skills.map((skill,index)=>{
+            return(<div className="flex flex-col items-center mx-10 p-2"> 
+            <div className="flex gap-1 opacity-70 hover:scale-105 hover:opacity-100 grayscale hover:grayscale-0">
+            <img key={index} className="h-8 transition-all " src={urlFor(skill.image).url()} alt={skill.title} />
+            <p className=" text-[#c9fd74] text-xs my-auto capitalize font-medium"> - {skill.title}</p>
+            </div>
+          </div>)
+          })}
+          </Marquee>
+        </div>
     </div>
   );
 }

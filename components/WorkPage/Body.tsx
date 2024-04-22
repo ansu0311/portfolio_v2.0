@@ -13,7 +13,7 @@ export function Body({ projects }: Props) {
   const [modal, setModal] = useState({ active: false, index: 0 });
 
   return (
-    <main className=" overflow-hidden max-w-6xl px-4 sm:px-8 xl:px-0 flex justify-center mx-auto">
+    <main className="mt-5 sm:mt-10 overflow-hidden max-w-6xl px-4 sm:px-8 xl:px-0 flex justify-center mx-auto">
       <div className=" w-full flex flex-col justify-center items-center ">
         <div className="flex justify-center sm:justify-start w-full py-16">
           <div className="flex flex-col">

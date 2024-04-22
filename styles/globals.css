@@ -3,80 +3,81 @@
 @tailwind utilities;
 
 @layer components {
-    .heroButton {
-        @apply px-4 py-2 border border-gray-600 rounded-full uppercase text-xs
+  .heroButton {
+    @apply px-4 py-2 border border-gray-600 rounded-full uppercase text-xs
         md:text-sm
         text-gray-700 dark:text-gray-400 transition-all hover:border-purple-500/60 hover:dark:border-purple-600/30
-        hover:text-white hover:bg-purple-500/60 hover:dark:bg-purple-600/30
-    }
-    
-    .contactInput {
-        @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-gray-700 text-gray-500
-        placeholder-gray-500 transition-all focus:border-purple-500/40 focus:text-purple-500/40 hover:border-purple-500/40
-    }
+        hover:text-white hover:bg-purple-500/60 hover:dark:bg-purple-600/30;
+  }
 
-    .preloaderSvg {
-        height: calc(100% + 300px);
-        path{
-            fill: #c9fd74;
-        }
-    }
-    .buttonContainer{
-        left: calc(100% - 400px); 
-        top: calc(100% - 75px);
-    }
-    .project:last-of-type{
-        border-bottom: 1px solid rgb(201, 201, 201);
-    }
-    .project:hover h2{
-        transform: translateX(-10px);
-    }
-    .project:hover p{
-        transform: translateX(10px);
-    }
-    .modalSlider{
-        transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-    }
-    .cursor, .cursorLabel{
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background-color: #455CE9;
-        color: white;
-        position: absolute;
-        z-index: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        font-weight: 300;
-        pointer-events: none;
-    }
-    
-body{
-    background-color:#242424
+  .contactInput {
+    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-gray-700 text-gray-500
+        placeholder-gray-500 transition-all focus:border-purple-500/40 focus:text-purple-500/40 hover:border-purple-500/40;
   }
-  .heroed{
-    display:flex;
+
+  .preloaderSvg {
+    height: calc(100% + 300px);
+    path {
+      fill: #c9fd74;
+    }
+  }
+  .buttonContainer {
+    left: calc(100% - 400px);
+    top: calc(100% - 75px);
+  }
+  .project:last-of-type {
+    border-bottom: 1px solid rgb(201, 201, 201);
+  }
+  .project:hover h2 {
+    transform: translateX(-10px);
+  }
+  .project:hover p {
+    transform: translateX(10px);
+  }
+  .modalSlider {
+    transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .cursor,
+  .cursorLabel {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #455ce9;
+    color: white;
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 300;
+    pointer-events: none;
+  }
+
+  body {
+    background-color: #242424;
+  }
+  .heroed {
+    display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    width:100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
-  .heroed:after{
-    content:"";
-    background-image:url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+  .heroed:after {
+    content: "";
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
     height: 300%;
     width: 300%;
     position: fixed;
-    top:0;
-    opacity:0.04;
+    top: 0;
+    opacity: 0.04;
   }
-  
+
   .blob {
-    @apply rounded-full blur-3xl absolute
+    @apply rounded-full blur-3xl absolute;
   }
-  .movement{
+  .movement {
     animation: red 8s infinite ease;
   }
   @keyframes yellow {
@@ -93,7 +94,7 @@ body{
       transform: scale(1);
     }
   }
-  
+
   @keyframes green {
     0% {
       transform: scale(1.2);
@@ -108,7 +109,7 @@ body{
       transform: scale(1.2);
     }
   }
-  
+
   @keyframes red {
     0% {
       transform: scale(1);
@@ -117,13 +118,82 @@ body{
       transform: scale(1.4);
     }
     60% {
-      transform: scale(1);
+      transform: scale(0.8);
     }
     100% {
       transform: scale(1);
     }
-  }  
+  }
 }
 * {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+.scroller{
+  animation: scroller 1.5s infinite linear;
+}
+.hideOut {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out; /* Adjust these values as needed */
+}
+.showOut {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out; /* Adjust these values as needed */
+}
+@keyframes scroller {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(12px);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+.hideOut1 {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Adjust these values as needed */
+}
+.showOut1 {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out; /* Adjust these values as needed */
+}
+@keyframes popOut {
+  0%{
+    scale: 0;
+  }
+  60%{
+    scale: 1.2;
+  }
+  100%{
+    scale: 1;
+  }
+}
+.el:hover{
+  .indicator{
+    transform: scale(1.2);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1);
+  }
+}
+.indicator{
+  transform: scale(0) translateX(-50%);
+  transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.indicatorT{
+  @apply hover:animate-pulse absolute bg-white rounded-full w-1 h-1 left-1/2 top-full
 }

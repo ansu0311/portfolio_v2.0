@@ -5,19 +5,21 @@ import { Hero } from "@/components/Hero";
 import { ProjectTab } from "@/components/ProjectTab";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { PageInfo, Project } from "@/typings";
+import { PageInfo, Project, Skill } from "@/typings";
 import { GetStaticProps } from "next";
 import fetchPageInfo from "@/utils/fetchPageInfo";
 import fetchProjects from "@/utils/fetchProjects";
 import { Curve } from "@/components/Curve/Curve";
 import { urlFor } from "@/sanity";
+import fetchSkills from "@/utils/fetchSkills";
 
 type Props = {
   pageInfo: PageInfo;
   projects: Project[];
+  skills:Skill[];
 };
 
-function Home({ pageInfo, projects }: Props) {
+function Home({ pageInfo, projects ,skills}: Props) {
   return (
     <>
       <Head>
@@ -40,7 +42,7 @@ function Home({ pageInfo, projects }: Props) {
                 <Hero pageInfo={pageInfo} />
               </section>
               <section id="about" className="snap-center">
-                <About imageLink={urlFor(pageInfo.heroImage).url()} />
+                <About skills={skills} imageLink={urlFor(pageInfo.heroImage).url()} />
               </section>
               <section id="projects" className="snap-center">
                 <ProjectTab
@@ -64,11 +66,13 @@ export default dynamic(() => Promise.resolve(Home), { ssr: false });
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const projects: Project[] = await fetchProjects();
+  const skills: Skill[] = await fetchSkills();
 
   return {
     props: {
       pageInfo: pageInfo,
       projects: projects,
+      skills: skills,
     },
     revalidate: 600,
   };
