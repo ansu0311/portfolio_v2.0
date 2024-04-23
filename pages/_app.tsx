@@ -5,7 +5,6 @@ import SideHeader from "@/components/SideHeader/SideHeader";
 import { Preloader } from "@/components/smallComponents/Preloader";
 import { useCallback, useEffect, useState } from "react";
 import  CodeBy  from "@/components/CodeBy"
-import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +52,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <div className="z-20 absolute w-full"><CodeBy coder={"Ansuman Nayak"} to="/" /></div>
         <Component key={router.route} {...pageProps} />
       </AnimatePresence>
-      <SpeedInsights />
     </div>
   );
 }
